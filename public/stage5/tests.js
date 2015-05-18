@@ -9,10 +9,10 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       //
       // ここに下記のコードを記述してください。
       //
-      // promise.then(function(msg) {
-      //   expect(msg).to.equal('resolved!');
-      //   testDone();
-      // });
+      promise.then(function(msg) {
+        expect(msg).to.equal('resolved!');
+        testDone();
+      });
     });
 
 
@@ -26,6 +26,10 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       // testDone();
 
       // ここにコードを記述してください。
+      promise.catch(function(msg){
+          expect(msg).to.equal('rejected!');
+          testDone();
+      });
 
 
     });
@@ -38,8 +42,11 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       var promise3 = createWaitPromise(messageFragments[2], 30);
 
       // 作成した promise を promise 変数に代入してください。
-      var promise = 'change me!';
-
+      var promise = Promise.all([
+        promise1,
+        promise2,
+        promise3
+      ]);
 
       return expect(promise).to.eventually.deep.equal(messageFragments);
     });
