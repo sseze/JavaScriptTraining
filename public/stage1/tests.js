@@ -196,7 +196,7 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('5 番の青色の要素を querySelector を使って1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var element = document.querySelector("blockquote");
+      var element = document.querySelector('blockquote');
 
       expect(element).to.have.property(secret('gntAnzr'), secret('OYBPXDHBGR'));
     });
@@ -205,7 +205,7 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('6 番の紫色の要素を querySelector を使って1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var element = document.querySelector("li[data-js-training]");
+      var element = document.querySelector('li[data-js-training]');
 
       expect(element).to.have.deep.property(secret('qngnfrg.wfGenvavat'),
                                             secret('oyhrivbyrg'));
