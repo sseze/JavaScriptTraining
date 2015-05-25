@@ -245,10 +245,9 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('12 番の紫色の要素を、属性セレクタと :nth-child(N) セレクタを使わずに1つ取得できる', function() {
 
       // 'change me!' を書き換えてください。
-      var selector = 'li[data-js-training]:last-child';
+      var selector = '.js-training + .js-training > :last-child';
 
       var element = document.querySelector(selector);
-      console.log(element);
       expect(selector).to.not.match(/\[\s*name\s*[~\|\^\$\*]?=/);
       expect(selector).to.not.have.string(':nth-child');
       expect(element).to.have.deep.property(secret('qngnfrg.wfGenvavat'),
@@ -335,7 +334,7 @@ describe('ステージ1（意図した DOM 要素を取得できるようにな�
     it('動いている寿司要素を取得する', function() {
 
       // 'change me!' を書き換えてください。
-      var element = $("div > div > x-flying-sushi-monster");
+      var element = document.querySelector('x-flying-sushi-monster');
 
       expect(element).to.have.deep.property(
         secret('grkgPbagrag'), '\uD83C\uDF63');
