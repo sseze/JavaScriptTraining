@@ -86,12 +86,13 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
     it('4 番の要素を入力された角度に回転できる', function() {
 
       // ここにコードを記述してください。
-      $('.turquoise').on('click', function(event) {
-        var $target = $(event.target);
-        var $inputValue = $target.find('input').attr('value');
-        $target.css({ 'transform': $inputValue + 'deg' });
-      });
+      var element = document.getElementsByClassName('turquoise')[0];
+      var input = element.getElementsByTagName('input')[0];
 
+      input.addEventListener('change', function() {
+        var degree = input.value;
+        element.style.transform = 'rotate(' + degree + 'deg)';
+      });
 
       var turquoise = document.querySelector('.turquoise');
       var turquoiseInput = turquoise.querySelector('input');
