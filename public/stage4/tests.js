@@ -64,14 +64,11 @@ describe('ステージ4（意図通りにイベントを利用できる）', fun
     it('3 番の要素の click イベントで要素を 10 度ずつ回転できる', function() {
 
       // ここにコードを記述してください。
-      var degree = 10;
-
-      $('.mediumseagreen').on('click', function(event) {
-        var $target = $('.mediumseagreen').on('click', function(event){
-            var $target = $(event.target);
-            degree = degree + 10;
-            $target.css({ 'transform': 'rotate(' + degree + 'deg)' });
-        });
+      var element = document.getElementsByClassName('mediumseagreen')[0];
+      var degree = 0;
+      element.addEventListener('click', function(){
+        degree += 10;
+        element.style.transform = 'rotate(' + degree + 'deg)';
       });
 
 
