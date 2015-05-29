@@ -67,9 +67,8 @@ describe('ステージ3（意図した通りに DOM 要素の構造を変更で�
 
       // 上の elementToAdd を、5 番の青色の要素の最初に追加するコードを
       // ここに記述してください。
-      var referenceElement = document.querySelector('blockquote');
-      var parentElement = referenceElement.parentNode;
-      parentElement.insertBefore(elementToAdd, referenceElement);
+      var element = document.querySelector('blockquote');
+      element.insertBefore(elementToAdd, element.firstChild);
 
 
       var blockquote = document.querySelector('blockquote');
