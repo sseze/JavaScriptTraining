@@ -82,6 +82,9 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       // var promisedFriends = fetch(api + username).then(function(res) {
       //   return res.json();
       // });
+      var promisedFriends = fetch(api + username).then(function(res){
+          return res.json();
+      });
 
 
       return expect(promisedFriends).to.eventually.have.length(1)
@@ -94,7 +97,9 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       var username = 'Shen';
 
       // 作成した promise を promisedFriends 変数に代入してください。
-      var promisedFriends = 'change me!';
+      var promisedFriends = fetch(api + username).then(function(res){
+          return res.json();
+      });
 
 
       return expect(promisedFriends).to.eventually.have.length(2)
@@ -107,7 +112,12 @@ describe('ステージ5（意図通りに非同期処理を利用できる）', 
       var username = 'Shen';
 
       // 作成した promise を promisedFriends 変数に代入してください。
-      var promisedFriends = 'change me!';
+      var promisedFriends = fetch(api + username).then(function(res){
+          console.log(res);
+          return fetch(api + res.json()).then(function(result){
+              return result;
+          });
+      });
 
 
       return expect(promisedFriends).to.eventually.have.length(1)
